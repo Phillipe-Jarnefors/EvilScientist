@@ -26,6 +26,12 @@ label {
 	display: block;
 }
 
+.card-show {
+	border: 1px solid olivedrab;
+	height: 50%;
+	margin: 10px;
+}
+
 
 .grid {
 	display: grid;
