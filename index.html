@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="styles.css">
+	<title>Evil Scientist</title>
+</head>
+<body>
+
+	<div class="grid">
+		<header class="header">
+			<h1>Evil Scientist</h1>
+		</header>
+	
+		<main class="flex main">
+			<section class="content">
+				<div class="card-add">
+					<h2>Add Scientist</h2>
+					<form>
+						<label for="fullname">Name</label>
+						<input type="text" name="fullname">
+
+						<label for="age">Age</label>
+						<input type="number" name="age" min="1" max="100">
+
+						<label for="henchmen">Henchmen</label>
+						<input type="number" name="henchmen" min="0" max="100">
+
+						<label for="desc">Evil Info</label>
+						<textarea name="desc" rows="2" cols="30"></textarea>
+
+						<input type="submit" value="Submit">
+					</form>
+				</div>
+			</section>
+			<section class="content">
+				<div class="card"></div>
+				<div class="card"></div>
+			</section>
+			<section class="content">
+				<div></div>
+			</section>
+		</main>
+	
+	
+		<footer class="footer">
+			<h4>Footer</h4>
+		</footer>
+	</div>
+
+
+	<script src="app.js"></script>
+</body>
+</html>
