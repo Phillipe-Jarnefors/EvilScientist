@@ -22,10 +22,37 @@
 	margin: 10px;
 }
 
+.card-add > form {
+	margin-left: 1rem;
+}
+
 label {
+	display: block;
+	margin-top: 1.2rem;
+}
+
+input {
 	display: block;
 }
 
+textarea {
+	margin-bottom: 1.2rem;
+}
+
+.update-list {
+	display: block;
+	background-color: lightblue;
+	padding: 0.5rem 1rem;
+	border: none;
+}
+
+.update-list:hover {
+	display: block;
+	background-color: rgb(104, 198, 229);
+	padding: 0.5rem 1rem;
+	border: none;
+	cursor: pointer;
+}
 .card-show {
 	border: 1px solid olivedrab;
 	height: 50%;
