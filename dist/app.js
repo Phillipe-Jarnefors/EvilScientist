@@ -34,7 +34,7 @@ function printListOfScientists() {
         h2Elem.innerHTML = `${evilScientists[i].name}`;
         evilScientistList.append(divElem);
         divElem.append(h2Elem);
-        h2Elem.addEventListener("click", (event) => {
+        divElem.addEventListener("click", (event) => {
             event.preventDefault();
             cardShow.innerHTML = "";
             let pickedEvil = h2Elem.innerText;

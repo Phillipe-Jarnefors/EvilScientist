@@ -1,8 +1,32 @@
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 .content {
 	border: 1px solid black;	
+	border-radius: 0.3rem;
 	width: 100%;
 	margin: 10px;
 	height: 80vh;
+}
+
+section > h2 {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+article > div > h2 {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+article > div {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .flex {
@@ -11,15 +35,15 @@
 }
 
 .card {
-	border: 1px solid olivedrab;
+	border: 2px solid rgb(243, 107, 107);
+	border-radius: 0.3rem;
 	height: 6rem;
 	margin: 1rem;
 }
 
-.card-add {
-	border: 1px solid olivedrab;
-	height: 50%;
-	margin: 10px;
+.card:hover {
+	cursor: pointer;
+	background-color: rgb(255, 154, 154);
 }
 
 .card-add > form {
@@ -35,26 +59,15 @@ input {
 	display: block;
 }
 
+button {
+	display: block;
+}
+
 textarea {
 	margin-bottom: 1.2rem;
 }
 
-.update-list {
-	display: block;
-	background-color: lightblue;
-	padding: 0.5rem 1rem;
-	border: none;
-}
-
-.update-list:hover {
-	display: block;
-	background-color: rgb(104, 198, 229);
-	padding: 0.5rem 1rem;
-	border: none;
-	cursor: pointer;
-}
 .card-show {
-	border: 1px solid olivedrab;
 	height: 50%;
 	margin: 10px;
 }

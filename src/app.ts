@@ -45,7 +45,7 @@ function printListOfScientists(): void {
 		divElem.append(h2Elem);
 
 		/// ==== When click on Evil, compare innertext and find the object ====
-		h2Elem.addEventListener("click", (event) => {
+		divElem.addEventListener("click", (event) => {
 			event.preventDefault();
 			cardShow.innerHTML = "";
 			let pickedEvil: string = h2Elem.innerText;
