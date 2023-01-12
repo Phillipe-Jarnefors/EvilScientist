@@ -1,12 +1,8 @@
 "use strict";
 const evilScientistList = document.querySelector(".evil-scientist-list");
-const updateList = document.querySelector(".update-list");
 const cardShow = document.querySelector(".card-show");
 const formData = document.querySelector(".form-data");
 const submitForm = document.querySelector("#submit-form");
-updateList.addEventListener("click", function (event) {
-    printListOfScientists();
-});
 const evilScientists = [
     {
         name: "Klaus Benedict",
@@ -27,7 +23,6 @@ const evilScientists = [
         desc: "Wish to rule the world",
     },
 ];
-// ==== Show List of Evil ====
 function printListOfScientists() {
     evilScientistList.innerHTML = '';
     let evilScientistsLength = evilScientists.length;
@@ -78,6 +73,4 @@ submitForm.addEventListener('click', function (event) {
     printListOfScientists();
     const resetForm = document.querySelector('.form');
     resetForm.reset();
-    console.log(evilScientists);
-    console.log(evilArr);
 });
