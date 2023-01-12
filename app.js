@@ -1,82 +1,83 @@
-var evilScientistList = document.querySelector(".evil-scientist-list");
-var updateList = document.querySelector(".update-list");
-var cardShow = document.querySelector(".card-show");
+"use strict";
+const evilScientistList = document.querySelector(".evil-scientist-list");
+const updateList = document.querySelector(".update-list");
+const cardShow = document.querySelector(".card-show");
+const formData = document.querySelector(".form-data");
+const submitForm = document.querySelector("#submit-form");
 updateList.addEventListener("click", function (event) {
     printListOfScientists();
 });
-var evilScientists = [
+const evilScientists = [
     {
         name: "Klaus Benedict",
         age: 50,
         henchmen: 12,
-        desc: "Built Frankensteins Monster more advanced"
+        desc: "Built Frankensteins Monster more advanced",
     },
     {
         name: "Wilhelm Will",
         age: 40,
         henchmen: 0,
-        desc: "Lone Wolf"
+        desc: "Lone Wolf",
     },
     {
         name: "Pingis Khan",
         age: 60,
         henchmen: 100,
-        desc: "Wish to rule the world"
+        desc: "Wish to rule the world",
     },
 ];
 // ==== Show List of Evil ====
 function printListOfScientists() {
     evilScientistList.innerHTML = '';
-    var evilScientistsLength = evilScientists.length;
-    var _loop_1 = function (i) {
-        var divElem = document.createElement('div');
-        var h2Elem = document.createElement('h2');
+    let evilScientistsLength = evilScientists.length;
+    for (let i = 0; i < evilScientistsLength; i++) {
+        let divElem = document.createElement('div');
+        let h2Elem = document.createElement('h2');
         divElem.className = "card";
         h2Elem.className = "evil-name";
-        h2Elem.innerHTML = "".concat(evilScientists[i].name);
+        h2Elem.innerHTML = `${evilScientists[i].name}`;
         evilScientistList.append(divElem);
         divElem.append(h2Elem);
-        h2Elem.addEventListener("click", function (event) {
+        h2Elem.addEventListener("click", (event) => {
             event.preventDefault();
             cardShow.innerHTML = "";
-            var pickedEvil = h2Elem.innerText;
-            var choosenEvil = evilScientists.find(function (evil) { return evil.name === pickedEvil; });
-            console.log(choosenEvil);
-            console.log(evilScientists[i].name);
-            var evilArray = [];
-            for (var _i = 0, _a = Object.entries(choosenEvil); _i < _a.length; _i++) {
-                var _b = _a[_i], key = _b[0], value = _b[1];
-                var evilString = '';
+            let pickedEvil = h2Elem.innerText;
+            let evilArray = [];
+            const choosenEvil = evilScientists.find(evil => evil.name === pickedEvil);
+            for (const [key, value] of Object.entries(choosenEvil)) {
+                let evilString = '';
                 evilString += key + ': ' + value;
                 evilArray.push(evilString);
             }
-            var prettyArray = evilArray.map(function (letter) { return letter.charAt(0).toUpperCase() + letter.substring(1); });
-            console.log(prettyArray);
-            prettyArray.forEach(function (element) {
-                var listElement = document.createElement('li');
-                var ulElement = document.createElement('ul');
+            let prettyArray = evilArray.map(letter => letter.charAt(0).toUpperCase() + letter.substring(1));
+            prettyArray.forEach(element => {
+                const listElement = document.createElement('li');
+                const ulElement = document.createElement('ul');
                 listElement.innerHTML = element;
                 ulElement.append(listElement);
                 cardShow.append(ulElement);
             });
         });
-    };
-    for (var i = 0; i < evilScientistsLength; i++) {
-        _loop_1(i);
     }
 }
 printListOfScientists();
-// ==== Show Info about the Evil Scientist ====
-// function displayChoosenEvil(): void {
-// }
-// for (let j = 0; j < evilScientistsLength; j++) {
-// 	discoverBtn[j].addEventListener('click', function() :void {
-// 		cardShow.innerHTML = "";
-// 		for(let [key, value] of Object.entries(evilScientists[j])) {
-// 			let unorderList = document.createElement('ul') as HTMLElement
-// 			let listElement = document.createElement('li') as HTMLElement
-// 			cardShow.append(unorderList)
-// 			listElement.innerHTML = [`${key}: ${value}`]
-// 		}
-// 	})
-// }
+submitForm.addEventListener('click', function (event) {
+    event.preventDefault();
+    const evilFullName = document.querySelector("#fullname").value;
+    const evilAge = document.querySelector("#age").valueAsNumber;
+    const evilHenchmen = document.querySelector("#henchmen").valueAsNumber;
+    const evilDesc = document.querySelector("#desc").value;
+    const evilArr = {
+        name: evilFullName,
+        age: evilAge,
+        henchmen: evilHenchmen,
+        desc: evilDesc,
+    };
+    evilScientists.push(evilArr);
+    printListOfScientists();
+    const resetForm = document.querySelector('.form');
+    resetForm.reset();
+    console.log(evilScientists);
+    console.log(evilArr);
+});

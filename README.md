@@ -1,2 +1,3 @@
 # EvilScientist
-Evil Scientist DB //Phillipe
+## Evil Scientist DB //Phillipe
+Building a simple add Evil Scientist app using TypeScript.

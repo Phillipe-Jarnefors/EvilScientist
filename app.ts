@@ -1,11 +1,12 @@
 const evilScientistList = document.querySelector(".evil-scientist-list") as HTMLElement
 const updateList = document.querySelector(".update-list") as HTMLElement
 const cardShow = document.querySelector(".card-show") as HTMLElement
-
+const formData = document.querySelector(".form-data") as HTMLElement
+const submitForm = document.querySelector("#submit-form") as HTMLButtonElement;
+ 
 updateList.addEventListener("click", function(event){
 	printListOfScientists();
 })
-
 
 type Evils = {
 	name: string;
@@ -34,7 +35,6 @@ const evilScientists: Evils[] = [
 		desc: "Wish to rule the world",
 	},
 ]
-
 
 // ==== Show List of Evil ====
 function printListOfScientists(): void {
@@ -71,32 +71,36 @@ function printListOfScientists(): void {
 				cardShow.append(ulElement);
 			})
 		})
-		
 	}
+
 }
 printListOfScientists();
 
 
+submitForm.addEventListener('click', function(event){
+	event.preventDefault();
+
+	const evilFullName: string = (document.querySelector("#fullname") as HTMLInputElement).value;
+	const evilAge: number = (document.querySelector("#age") as HTMLInputElement).valueAsNumber
+	const evilHenchmen: number = (document.querySelector("#henchmen") as HTMLInputElement).valueAsNumber
+	const evilDesc: string = (document.querySelector("#desc") as HTMLInputElement).value
+
+	const evilArr: Evils = {
+		name: evilFullName,
+		age: evilAge,
+		henchmen: evilHenchmen,
+		desc: evilDesc,
+	}
+
+	evilScientists.push(evilArr)
+	printListOfScientists();
+	
+	const resetForm = document.querySelector('.form') as HTMLFormElement
+	resetForm.reset();
+})
 
 
-// ==== Show Info about the Evil Scientist ====
-// function displayChoosenEvil(): void {
-
-// }
 
 
 
 
-
-
-// for (let j = 0; j < evilScientistsLength; j++) {
-// 	discoverBtn[j].addEventListener('click', function() :void {
-// 		cardShow.innerHTML = "";
-// 		for(let [key, value] of Object.entries(evilScientists[j])) {
-// 			let unorderList = document.createElement('ul') as HTMLElement
-// 			let listElement = document.createElement('li') as HTMLElement
-// 			cardShow.append(unorderList)
-// 			listElement.innerHTML = [`${key}: ${value}`]
-// 		}
-// 	})
-// }
